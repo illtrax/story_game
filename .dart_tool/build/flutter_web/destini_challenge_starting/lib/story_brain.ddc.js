@@ -21,6 +21,33 @@ define(['dart_sdk', 'packages/destini_challenge_starting/story'], function(dart_
     getChoice2() {
       return this[_storyData][$_get](this[_storyNumber]).choice2;
     }
+    nextStory(choiceNumber) {
+      if (this[_storyNumber] === 0 && choiceNumber === 1) {
+        this[_storyNumber] = 2;
+      } else if (this[_storyNumber] === 0 && choiceNumber === 2) {
+        this[_storyNumber] = 1;
+      } else if (this[_storyNumber] === 2 && choiceNumber === 1) {
+        this[_storyNumber] = 5;
+      } else if (this[_storyNumber] === 1 && choiceNumber === 1) {
+        this[_storyNumber] = 2;
+      } else if (this[_storyNumber] === 2 && choiceNumber === 2) {
+        this[_storyNumber] = 4;
+      } else if (this[_storyNumber] === 1 && choiceNumber === 2) {
+        this[_storyNumber] = 3;
+      }
+      if (dart.notNull(choiceNumber) > 2) {
+        this.restart();
+      }
+    }
+    restart() {
+      this[_storyNumber] = 0;
+    }
+    buttonShouldBeVisible() {
+      if (dart.notNull(this[_storyNumber]) > 2) {
+        return false;
+      } else
+        return true;
+    }
   };
   (story_brain.StoryBrain.new = function() {
     this[_storyNumber] = 0;
@@ -32,7 +59,10 @@ define(['dart_sdk', 'packages/destini_challenge_starting/story'], function(dart_
     __proto__: dart.getMethods(story_brain.StoryBrain.__proto__),
     getStory: dart.fnType(core.String, []),
     getChoice1: dart.fnType(core.String, []),
-    getChoice2: dart.fnType(core.String, [])
+    getChoice2: dart.fnType(core.String, []),
+    nextStory: dart.fnType(dart.void, [core.int]),
+    restart: dart.fnType(dart.void, []),
+    buttonShouldBeVisible: dart.fnType(dart.dynamic, [])
   }));
   dart.setLibraryUri(story_brain.StoryBrain, "package:destini_challenge_starting/story_brain.dart");
   dart.setFieldSignature(story_brain.StoryBrain, () => ({
@@ -43,7 +73,7 @@ define(['dart_sdk', 'packages/destini_challenge_starting/story'], function(dart_
   dart.trackLibraries("packages/destini_challenge_starting/story_brain", {
     "package:destini_challenge_starting/story_brain.dart": story_brain
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["story_brain.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;AAsCI,YAAO,AAAU,AAAe,yBAAd;IACpB;;AAGE,YAAO,AAAU,AAAe,yBAAd;IACpB;;AAGE,YAAO,AAAU,AAAe,yBAAd;IACpB;;;IA5CI,qBAAe;IAEP,mBAAa,qBACvB,iCAEQ,+SACK,8CACA,8CACb,iCACgB,sDACH,iDACA,wCACb,iCAEQ,0SACK,2DACA,sDACb,iCAEQ,6IACK,oBACA,MACb,iCAEQ,wLACK,oBACA,MACb,iCAEQ,yOACK,oBACA;;EAcjB","file":"story_brain.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["story_brain.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;AAsCI,YAAO,AAAU,AAAe,yBAAd;IACpB;;AAGE,YAAO,AAAU,AAAe,yBAAd;IACpB;;AAGE,YAAO,AAAU,AAAe,yBAAd;IACpB;cAEmB;AACjB,UAAI,AAAa,uBAAG,KAAK,AAAa,YAAD,KAAI;AACvB,QAAhB,qBAAe;YACV,KAAI,AAAa,uBAAG,KAAK,AAAa,YAAD,KAAI;AAC9B,QAAhB,qBAAe;YACV,KAAI,AAAa,uBAAG,KAAK,AAAa,YAAD,KAAI;AAC9B,QAAhB,qBAAe;YACV,KAAI,AAAa,uBAAG,KAAK,AAAa,YAAD,KAAI;AAC9B,QAAhB,qBAAe;YACV,KAAI,AAAa,uBAAG,KAAK,AAAa,YAAD,KAAI;AAC9B,QAAhB,qBAAe;YACV,KAAI,AAAa,uBAAG,KAAK,AAAa,YAAD,KAAI;AAC9B,QAAhB,qBAAe;;AAEjB,UAAiB,aAAb,YAAY,IAAG;AACR,QAAT;;IAEJ;;AAGkB,MAAhB,qBAAe;IACjB;;AAGE,UAAiB,aAAb,sBAAe;AACjB,cAAO;;AAEP,cAAO;IACX;;;IA1EI,qBAAe;IAEP,mBAAa,qBACvB,iCAEQ,+SACK,8CACA,8CACb,iCACgB,sDACH,iDACA,wCACb,iCAEQ,0SACK,2DACA,sDACb,iCAEQ,6IACK,oBACA,MACb,iCAEQ,wLACK,oBACA,MACb,iCAEQ,yOACK,oBACA;;EA4CjB","file":"story_brain.ddc.js"}');
   // Exports:
   return {
     story_brain: story_brain
