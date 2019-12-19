@@ -1,1 +1,1 @@
-{"isEntrypoint":true,"deps":[],"parts":[],"conditionalDeps":[],"sdkDeps":[],"hasMain":false}
+{"isEntrypoint":true,"deps":["destini_challenge_starting|lib/story.dart"],"parts":[],"conditionalDeps":[],"sdkDeps":[],"hasMain":false}

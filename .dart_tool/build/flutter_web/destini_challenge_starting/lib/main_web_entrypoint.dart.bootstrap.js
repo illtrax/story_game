@@ -62,6 +62,8 @@ let modulePaths = {
  "packages/collection/src/utils": "packages/collection/src/utils.ddc",
  "packages/destini_challenge_starting/main": "packages/destini_challenge_starting/main.ddc",
  "packages/destini_challenge_starting/main_web_entrypoint": "packages/destini_challenge_starting/main_web_entrypoint.ddc",
+ "packages/destini_challenge_starting/story": "packages/destini_challenge_starting/story.ddc",
+ "packages/destini_challenge_starting/story_brain": "packages/destini_challenge_starting/story_brain.ddc",
  "packages/flutter/animation": "packages/flutter/animation.ddc",
  "packages/flutter/cupertino": "packages/flutter/cupertino.ddc",
  "packages/flutter/foundation": "packages/flutter/foundation.ddc",
